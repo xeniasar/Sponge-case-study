@@ -10,8 +10,8 @@ The pipeline was developed for *Spongia officinalis* and can be adapted to other
 ## Pipeline overview
 
 1. Low-quality read trimming and adapter removal (fastp)
-3. Read mapping to reference genome (bwa)
-4. BAM processing (sorting, marking duplicates)
+3. Read mapping to reference genome (bwa) and BAM sorting (samtools)
+4. BAM processing (marking duplicates, removing duplicates, indexing)
 5. Variant calling (GATK HaplotypeCaller)
 6. Joint genotyping
 7. Variant filtering
@@ -31,4 +31,18 @@ Trimmed reads are mapped to the reference genome using BWA-MEM, and alignments a
 
 ```bash
 bash scripts/02_bwa_mem.sh
+```
+## Step 3: Mark duplicates (sambamba)
+
+PCR and optical duplicates are marked using sambamba.
+
+```bash
+bash scripts/03_mark_duplicates.sh
+```
+## Step 4: Remove duplicates and index BAMs (optional)
+
+Optionally remove reads marked as duplicates and index the resulting BAM files.
+
+```bash
+bash scripts/04_remove_duplicates_and_index.sh
 ```
