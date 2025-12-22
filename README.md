@@ -25,7 +25,8 @@ Trim low-quality bases and adapter sequences using fastp.
 ```bash
 bash scripts/01_fastp.sh
 
-## Step 2: Read mapping to the reference genome (bwa-mem)
+```md
+## Step 2: Read mapping (BWA-MEM)
 
 Trimmed reads are mapped to the reference genome using BWA-MEM, and alignments are sorted with samtools.
 
