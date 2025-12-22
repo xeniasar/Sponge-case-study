@@ -46,3 +46,10 @@ Optionally remove reads marked as duplicates and index the resulting BAM files.
 ```bash
 bash scripts/04_remove_duplicates_and_index.sh
 ```
+## Step 5: Variant calling per-sample (GATK HaplotypeCaller, GVCF mode)
+
+Call variants per sample in GVCF mode.
+
+```bash
+bash scripts/05_haplotypecaller_gvcf.sh
+```
