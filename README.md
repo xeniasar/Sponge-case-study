@@ -17,3 +17,17 @@ The pipeline was developed for *Spongia officinalis* and can be adapted to other
 7. Variant filtering
 
 Each step is implemented as a separate script.
+
+## Step 1: Read trimming (fastp)
+
+Trim low-quality bases and adapter sequences using fastp.
+
+```bash
+bash scripts/01_fastp.sh
+
+## Step 2: Read mapping (BWA-MEM)
+
+Trimmed reads are mapped to the reference genome using BWA-MEM, and alignments are sorted with samtools.
+
+```bash
+bash scripts/02_bwa_mem.sh
