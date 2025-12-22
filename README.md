@@ -10,11 +10,11 @@ The pipeline was developed for *Spongia officinalis* and can be adapted to other
 ## Pipeline overview
 
 1. Low-quality read trimming and adapter removal (fastp)
-3. Read mapping to reference genome (bwa) and BAM sorting (samtools)
-4. BAM processing (marking duplicates, removing duplicates, indexing)
-5. Variant calling (GATK HaplotypeCaller)
-6. Joint genotyping
-7. Variant filtering
+2. Read mapping to reference genome (bwa) and BAM sorting (samtools)
+3. BAM processing (marking duplicates, removing duplicates, indexing)
+4. Variant calling (GATK HaplotypeCaller)
+5. Joint genotyping
+6. Variant filtering
 
 Each step is implemented as a separate script.
 
