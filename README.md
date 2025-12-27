@@ -48,8 +48,14 @@ bash scripts/04_remove_duplicates_and_index.sh
 ```
 ## Step 5: Variant calling per-sample (GATK HaplotypeCaller, GVCF mode)
 
-Call variants per sample in GVCF mode.
+Variants are called per sample in GVCF mode using GATK HaplotypeCaller.
+
+To enable parallelisation across chromosomes, the genome was split into
+~6 Mb intervals. HaplotypeCaller was run independently for each interval, and
+the resulting per-interval GVCFs were merged per sample using
+`gatk GatherVcfs`.
 
 ```bash
 bash scripts/05_haplotypecaller_gvcf.sh
+bash scripts/05b_gather_gvcfs.sh
 ```
