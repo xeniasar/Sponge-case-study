@@ -11,10 +11,11 @@ The pipeline was developed for *Spongia officinalis* and can be adapted to other
 
 1. Low-quality read trimming and adapter removal (fastp)
 2. Read mapping to reference genome (bwa) and BAM sorting (samtools)
-3. BAM processing (marking duplicates, removing duplicates, indexing)
-4. Variant calling (GATK HaplotypeCaller)
-5. Joint genotyping
-6. Variant filtering
+3. Mark duplicates
+4. Remove duplicates and index BAMs (optional)
+5. Variant calling (GATK HaplotypeCaller)
+6. Joint genotyping
+7. Variant filtering
 
 Each step is implemented as a separate script.
 
@@ -46,7 +47,7 @@ Optionally remove reads marked as duplicates and index the resulting BAM files.
 ```bash
 bash scripts/04_remove_duplicates_and_index.sh
 ```
-## Step 5: Variant calling per-sample (GATK HaplotypeCaller, GVCF mode)
+## Step 5: Variant calling (GATK HaplotypeCaller, GVCF mode)
 
 Variants are called per sample in GVCF mode using GATK HaplotypeCaller.
 
@@ -56,6 +57,6 @@ the resulting per-interval GVCFs were merged per sample using
 `gatk GatherVcfs`.
 
 ```bash
-bash scripts/05_haplotypecaller_gvcf.sh
+bash scripts/05a_haplotypecaller_gvcf.sh
 bash scripts/05b_gather_gvcfs.sh
 ```
