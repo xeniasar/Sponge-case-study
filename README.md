@@ -86,10 +86,17 @@ Extract SNPs from the final cohort VCF.
 ```bash
 bash scripts/09_select_snps.sh
 ```
-## Step 10: Select PASS SNPs
+## Step 10: Filter SNPs (hard filters)
+
+Apply hard filters to the SNP-only cohort VCF using GATK VariantFiltration.
+
+```bash
+bash scripts/10_filter_snps.sh
+```
+## Step 11: Select PASS SNPs
 
 After variant filtering, retain only variants that passed all filters.
 
 ```bash
-bash scripts/10_select_pass_snps.sh
+bash scripts/11_select_pass_snps.sh
 ```
