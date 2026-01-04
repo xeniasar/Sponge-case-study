@@ -86,3 +86,10 @@ Extract SNPs from the final cohort VCF.
 ```bash
 bash scripts/09_select_snps.sh
 ```
+## Step 10: Select PASS SNPs
+
+After variant filtering, retain only variants that passed all filters.
+
+```bash
+bash scripts/10_select_pass_snps.sh
+```
