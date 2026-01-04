@@ -67,3 +67,10 @@ Per-sample GVCFs are imported into GenomicsDB workspaces per chromosome.
 ```bash
 bash scripts/06_genomicsdbimport_per_chrom.sh
 ```
+## Step 7: Joint genotyping (GenotypeGVCFs)
+
+GenomicsDB workspaces are genotyped per chromosome using GATK GenotypeGVCFs.
+
+```bash
+bash scripts/07_genotypegvcfs_per_chrom.sh
+```
