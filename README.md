@@ -6,18 +6,19 @@ This repository contains scripts used for SNP discovery from whole-genome resequ
 The pipeline was developed for *Spongia officinalis* and can be adapted to other species with a reference genome.
 
 ---
-
 ## Pipeline overview
 
 1. Low-quality read trimming and adapter removal (fastp)
-2. Read mapping to reference genome (bwa) and BAM sorting (samtools)
-3. Mark duplicates
+2. Read mapping to the reference genome (BWA-MEM) and BAM sorting (samtools)
+3. Mark PCR and optical duplicates (sambamba)
 4. Remove duplicates and index BAMs (optional)
-5. Variant calling (GATK HaplotypeCaller)
-6. Joint genotyping
-7. Variant filtering
-
-Each step is implemented as a separate script.
+5. Per-sample variant calling in GVCF mode using GATK HaplotypeCaller (interval-based)
+6. Import per-sample GVCFs into GenomicsDB per chromosome (GenomicsDBImport)
+7. Joint genotyping per chromosome (GATK GenotypeGVCFs)
+8. Merge per-chromosome joint VCFs into a cohort-level VCF (GATK GatherVcfs)
+9. Select SNPs from the cohort VCF
+10. Apply hard filters to SNPs (GATK VariantFiltration)
+11. Retain only PASS SNPs
 
 ## Step 1: Read trimming (fastp)
 
