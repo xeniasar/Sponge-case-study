@@ -74,3 +74,15 @@ GenomicsDB workspaces are genotyped per chromosome using GATK GenotypeGVCFs.
 ```bash
 bash scripts/07_genotypegvcfs_per_chrom.sh
 ```
+## Step 8: Merge per-chromosome joint VCFs into one cohort VCF
+
+```bash
+bash scripts/08_gather_cohort_vcf.sh
+```
+## Step 9: Select SNPs only
+
+Extract SNPs from the final cohort VCF.
+
+```bash
+bash scripts/09_select_snps.sh
+```
