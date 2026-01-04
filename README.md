@@ -60,3 +60,10 @@ the resulting per-interval GVCFs were merged per sample using
 bash scripts/05a_haplotypecaller_gvcf.sh
 bash scripts/05b_gather_gvcfs.sh
 ```
+## Step 6: Joint genotyping preparation (GenomicsDBImport per chromosome)
+
+Per-sample GVCFs are imported into GenomicsDB workspaces per chromosome.
+
+```bash
+bash scripts/06_genomicsdbimport_per_chrom.sh
+```
